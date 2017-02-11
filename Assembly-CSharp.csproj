@@ -46,12 +46,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\CheckPoints.cs" />
-     <Compile Include="Assets\Crosshair.cs" />
-     <Compile Include="Assets\CubeM.cs" />
      <Compile Include="Assets\Elemental Free\Scripts\GE_ELF_Demo.cs" />
-     <Compile Include="Assets\FadeOut.cs" />
-     <Compile Include="Assets\FireABeam.cs" />
      <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCamera.cs" />
      <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCameraUI.cs" />
      <Compile Include="Assets\GE Common Assets\GE Toggle Full Screen\Scripts\GE_ToggleFullScreenUI.cs" />
@@ -68,20 +63,25 @@
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
      <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
-     <Compile Include="Assets\GirlAI.cs" />
-     <Compile Include="Assets\HeartBeat.cs" />
-     <Compile Include="Assets\MovingPlatForm.cs" />
-     <Compile Include="Assets\RespawnPlayer.cs" />
-     <Compile Include="Assets\TryThings.cs" />
      <Compile Include="Assets\WaveMe\Script\AudioManager.cs" />
+     <Compile Include="Assets\WaveMe\Script\CheckPoints.cs" />
+     <Compile Include="Assets\WaveMe\Script\Crosshair.cs" />
+     <Compile Include="Assets\WaveMe\Script\CubeM.cs" />
+     <Compile Include="Assets\WaveMe\Script\FadeOut.cs" />
+     <Compile Include="Assets\WaveMe\Script\FireABeam.cs" />
+     <Compile Include="Assets\WaveMe\Script\GirlAI.cs" />
      <Compile Include="Assets\WaveMe\Script\GreatZeuslightingmaker.cs" />
+     <Compile Include="Assets\WaveMe\Script\HeartBeat.cs" />
      <Compile Include="Assets\WaveMe\Script\Lightning.cs" />
      <Compile Include="Assets\WaveMe\Script\LoseConditionManager.cs" />
+     <Compile Include="Assets\WaveMe\Script\MovingPlatForm.cs" />
      <Compile Include="Assets\WaveMe\Script\ObjectFading.cs" />
      <Compile Include="Assets\WaveMe\Script\PassengerGenerator.cs" />
+     <Compile Include="Assets\WaveMe\Script\RespawnPlayer.cs" />
+     <Compile Include="Assets\WaveMe\Script\Rotating.cs" />
      <Compile Include="Assets\WaveMe\Script\StrangerDance.cs" />
      <Compile Include="Assets\WaveMe\Script\TimeManager.cs" />
-     <Compile Include="Assets\WhichScreenToGoTO.cs" />
+     <Compile Include="Assets\WaveMe\Script\WhichScreenToGoTO.cs" />
      <None Include="Assets\Standard Assets\Effects\AntiAliasing\FXAA\Resources\FXAA3.cginc" />
      <None Include="Assets\RAIN\Editor\Shaders\RAINShader.shader" />
      <None Include="Assets\Standard Assets\Effects\ScreenSpaceReflection\Resources\ScreenSpaceReflection.shader" />
