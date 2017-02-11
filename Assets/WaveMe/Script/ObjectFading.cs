@@ -5,10 +5,11 @@ using UnityEngine;
 public class ObjectFading : MonoBehaviour {
 	public float fadeTime;
 	public float idleTime;
-
+	private BoxCollider coll;
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (FadeInOut ());
+		coll = GetComponent<BoxCollider> ();
 	}
 	
 	// Update is called once per frame
@@ -47,15 +48,19 @@ public class ObjectFading : MonoBehaviour {
 
 	IEnumerator FadeInOut() {
 		while (true) {
-			Debug.Log ("FadeOut");
+			//Debug.Log ("FadeOut");
 			FadeOut ();
 			yield return new WaitForSeconds (fadeTime);
-			Debug.Log ("Disable");
+			//Debug.Log ("Disable");
 			DisableConnection ();
+			coll.isTrigger = true;
+			gameObject.tag = "Untagged";
 			yield return new WaitForSeconds (idleTime);
-			Debug.Log ("Enable");
+			//Debug.Log ("Enable");
 			EnableConnection ();
-			Debug.Log ("FadeIn");
+			//Debug.Log ("FadeIn");
+			coll.isTrigger = false;
+			gameObject.tag = "Platform";
 			FadeIn ();
 			yield return new WaitForSeconds (fadeTime + idleTime);
 		}
