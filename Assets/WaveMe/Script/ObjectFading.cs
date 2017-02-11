@@ -5,11 +5,11 @@ using UnityEngine;
 public class ObjectFading : MonoBehaviour {
 	public float fadeTime;
 	public float idleTime;
-	private BoxCollider coll;
+	private MeshCollider coll;
 	// Use this for initialization
 	void Start () {
 		StartCoroutine (FadeInOut ());
-		coll = GetComponent<BoxCollider> ();
+		coll = GetComponent<MeshCollider> ();
 	}
 	
 	// Update is called once per frame
