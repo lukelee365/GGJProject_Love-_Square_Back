@@ -32,6 +32,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			}else if(coll.name == "Tutorial5") {
 				StartCoroutine (textFadeOut.FadeTextToZeroAlpha ("She is there!", 8f));
 
+			}else if(coll.name == "Tutorial6") {
+				StartCoroutine (textFadeOut.FadeTextToZeroAlpha ("Watching Obstacles", 8f));
+
 			}
 
 		}
