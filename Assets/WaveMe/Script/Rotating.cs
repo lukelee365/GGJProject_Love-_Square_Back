@@ -5,6 +5,7 @@ using UnityEngine;
 public class Rotating : MonoBehaviour {
 	public float radius;
 	public float speed;
+	public Vector3 RotateAxis;
 	private GameObject parentObject;
 
 	// Use this for initialization
@@ -22,6 +23,6 @@ public class Rotating : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		parentObject.transform.Rotate (Vector3.up*speed);
+		parentObject.transform.Rotate (RotateAxis*speed);
 	}
 }
