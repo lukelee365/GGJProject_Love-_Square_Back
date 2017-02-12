@@ -22,8 +22,11 @@ public class FireABeam : MonoBehaviour {
 		Rect position;
 		bool connected;
 		// Use this for initialization
-		void Start () {
+		void Awake(){
 			otherHeart.SetActive (false);
+		}
+		void Start () {
+			
 			position = new Rect( ( Screen.width - crosshairTexture.width*scaler ) / 2, ( Screen.height - crosshairTexture.height*scaler ) / 2, crosshairTexture.width*scaler, crosshairTexture.height*scaler );
 			playerRg = GetComponentInParent<Rigidbody> ();
 			playerScript = GetComponentInParent<RigidbodyFirstPersonController> ();
