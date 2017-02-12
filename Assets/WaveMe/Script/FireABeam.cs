@@ -91,7 +91,7 @@ public class FireABeam : MonoBehaviour {
 						playerRg.WakeUp ();
 					if(!playerScript.Grounded){//add force to land when on air
 						playerRg.AddForce(transform.up*upForceScaler,ForceMode.Impulse);
-						playerRg.AddForce(transform.forward*upForceScaler,ForceMode.Impulse);
+						playerRg.AddForce(transform.forward*upForceScaler*1.3f,ForceMode.Impulse);
 
 					}
 						//playerRg.AddForce(transform.up*upForceScaler,ForceMode.Impulse);

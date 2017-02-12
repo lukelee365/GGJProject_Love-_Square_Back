@@ -250,14 +250,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_IsGrounded = true;
 				m_GroundContactNormal = Vector3.up;
-				if(hitInfo.collider.tag =="Platform")
-				transform.parent = hitInfo.transform;
+//				if(hitInfo.collider.tag =="Platform")
+//				transform.parent = hitInfo.transform;
             }
             else
             {
                 m_IsGrounded = false;
                 m_GroundContactNormal = Vector3.up;
-				transform.parent = null;
+//				transform.parent = null;
             }
             if (!m_PreviouslyGrounded && m_IsGrounded && m_Jumping)
             {

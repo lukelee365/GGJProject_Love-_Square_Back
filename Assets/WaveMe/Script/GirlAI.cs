@@ -9,13 +9,14 @@ public class GirlAI : MonoBehaviour {
 	private GameObject player;
 	private int goalIndex;
 	private Rigidbody rg; 
-
+	private bool justChecked;
 
 	// Use this for initialization
 	void Start () {
 		rg = GetComponent<Rigidbody> ();
 		goalIndex =  0;
 		player = GameObject.FindGameObjectWithTag ("Player");
+		justChecked = true;
 	}
 	
 	// Update is called once per frame
@@ -31,10 +32,17 @@ public class GirlAI : MonoBehaviour {
 	void NextWayPoints(){
 		float distBetwenPlayer = Vector3.Distance (player.transform.position, transform.position);
 		//Player Approach
-		if (distBetwenPlayer<=roseLeaveDist&&goalIndex<wayPoints.Length-1) {
-			goalIndex++;	
+		if (distBetwenPlayer<=roseLeaveDist&&goalIndex<wayPoints.Length-1&&justChecked) {
+			goalIndex++;
+			justChecked = false;
 		}
 
+	}
+
+	IEnumerator Delay(){
+		yield return new WaitForSeconds (3f);
+		justChecked = true;
+			
 	}
 	/// <summary>
 	/// Chasing the goal.
