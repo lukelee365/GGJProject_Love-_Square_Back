@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 namespace UnityStandardAssets.Characters.FirstPerson{
 
 public class FireABeam : MonoBehaviour {
@@ -20,10 +21,11 @@ public class FireABeam : MonoBehaviour {
 		private GameObject heartMask;
 		GameObject hitPeople = null;
 		RigidbodyFirstPersonController playerScript;
-
+		public int sceneIndex;
 		Rect position;
 		bool connected;
 		bool onlyCheckOnce;
+		bool onlyCheckOnce2;
 		// Use this for initialization
 		void Awake(){
 			otherHeart.SetActive (false);
@@ -32,6 +34,7 @@ public class FireABeam : MonoBehaviour {
 		}
 		void Start () {
 			onlyCheckOnce = true;
+			onlyCheckOnce2 = true;
 			position = new Rect( ( Screen.width - crosshairTexture.width*scaler ) / 2, ( Screen.height - crosshairTexture.height*scaler ) / 2, crosshairTexture.width*scaler, crosshairTexture.height*scaler );
 			playerRg = GetComponentInParent<Rigidbody> ();
 			playerScript = GetComponentInParent<RigidbodyFirstPersonController> ();
@@ -76,9 +79,12 @@ public class FireABeam : MonoBehaviour {
 				otherHeartScript.heart = otherHeart;
 				otherHeartScript.heartAnim = otherHeart.GetComponent<Animator> ();
 				//If hit Rose
-				if (hitPeople.name == "Rose") {
+				if (hitPeople.name == "Rose"&&onlyCheckOnce) {
 					FindHer ();
-
+				}
+				if (hitPeople.name == "NPC"&&onlyCheckOnce2) {
+					//DO something
+					onlyCheckOnce2 = false;
 				}
 			}
 	
@@ -131,8 +137,14 @@ public class FireABeam : MonoBehaviour {
 			onlyCheckOnce = false;
 			heartMask.SetActive (true);
 			//go to next scene;
+			StartCoroutine(GoToNextScene());
+		
 		}
-
+		IEnumerator GoToNextScene(){
+			yield return new WaitForSeconds (2.5f);
+			SceneManager.LoadScene (sceneIndex);
+			Debug.Log ("Try Load Scene2");
+		}
 
 
 	}

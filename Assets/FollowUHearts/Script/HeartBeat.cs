@@ -26,10 +26,15 @@ public class HeartBeat : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(heart!=null)
-		ControlhearBeatTime ();
+		if (heart != null) {
+			ControlhearBeatTime ();
+		}
 	}
-
+	public float DirtOfRose(){
+		Vector3 dir =  Target.transform.position-transform.position;
+		float angle = Vector3.Angle( dir, transform.forward );
+		return angle;
+	}
 
 	public float DistBetween(){
 		return Vector3.Distance (transform.position,Target.transform.position);
@@ -43,8 +48,19 @@ public class HeartBeat : MonoBehaviour {
 		} else {
 			dist = DistBetween ();
 		}
+		//map the dist
 		float r = Remap (dist/ maxDistBetweenTwo, 0, 1, minHearRate, maxHeartRate);
-		heartBeatTime = r;
+		// map the  direction
+		float d =1f;
+		if (gameObject.tag == "Player") {
+			// 30 degree deference
+			if (DirtOfRose () < 30f) {
+				d = Remap (DirtOfRose (), 5f, 30f, 1.5f,3f);
+			}
+
+		}
+		heartBeatTime = r/d;
+
 
 	}
 	//ReMapValuefrom A range to another
