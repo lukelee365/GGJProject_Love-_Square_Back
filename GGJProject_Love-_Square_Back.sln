@@ -1,13 +1,13 @@
+﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{A509DF33-55A6-F8D8-B74D-E4DA7C6ADC01}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp-firstpass.csproj", "{1E796C48-30A5-58EE-92E0-70590082FFAA}"
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp-firstpass.csproj", "{1E796C48-30A5-58EE-92E0-70590082FFAA}"
 EndProject
-Project("{A509DF33-55A6-F8D8-B74D-E4DA7C6ADC01}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp.csproj", "{984B613A-D659-E6C3-A295-2A14FAEF4501}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp.csproj", "{984B613A-D659-E6C3-A295-2A14FAEF4501}"
 EndProject
-Project("{A509DF33-55A6-F8D8-B74D-E4DA7C6ADC01}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp-Editor-firstpass.csproj", "{39169E38-60D7-2B07-0D7D-0EBFF9BBC76A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp-Editor-firstpass.csproj", "{39169E38-60D7-2B07-0D7D-0EBFF9BBC76A}"
 EndProject
-Project("{A509DF33-55A6-F8D8-B74D-E4DA7C6ADC01}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp-Editor.csproj", "{E7E78587-19B8-3EC3-0210-7D0BCE58BF7B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GGJProject_Love-_Square_Back", "Assembly-CSharp-Editor.csproj", "{E7E78587-19B8-3EC3-0210-7D0BCE58BF7B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

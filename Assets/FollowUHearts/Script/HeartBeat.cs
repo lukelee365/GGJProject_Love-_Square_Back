@@ -11,16 +11,24 @@ public class HeartBeat : MonoBehaviour {
 	public float maxDistBetweenTwo;
 	public GameObject Target;
 	public GameObject heart;
+	private float timeStart;
+	private float timer;
 	[HideInInspector]
 	public Animator heartAnim;
+	private bool shouldHeartBeat;
+	private bool checkOnce;
 	// Use this for initialization
 	void Start () {
 		AudioSource[] audioSources = GameObject.Find("AudioManager").GetComponents<AudioSource> ();
+		timeStart = Time.time;
+		timer = Time.time + heartBeatTime;
+		shouldHeartBeat = true;
+		checkOnce = false;
 		heartBeatAudioSource = audioSources [audioIndex];
 		if (heart != null) {
 			heartAnim = heart.GetComponent<Animator> ();
 		}
-			StartCoroutine ("HeartBeatFrequnecy");
+//			StartCoroutine ("HeartBeatFrequnecy");
 		
 	}
 	
@@ -28,7 +36,10 @@ public class HeartBeat : MonoBehaviour {
 	void Update () {
 		if (heart != null) {
 			ControlhearBeatTime ();
+			HeartBeatFrequent ();
 		}
+			
+		
 	}
 	public float DirtOfRose(){
 		Vector3 dir =  Target.transform.position-transform.position;
@@ -51,16 +62,23 @@ public class HeartBeat : MonoBehaviour {
 		//map the dist
 		float r = Remap (dist/ maxDistBetweenTwo, 0, 1, minHearRate, maxHeartRate);
 		// map the  direction
-		float d =1f;
+
 		if (gameObject.tag == "Player") {
 			// 30 degree deference
-			if (DirtOfRose () < 30f) {
-				d = Remap (DirtOfRose (), 5f, 30f, 1.5f,3f);
+			if (DirtOfRose () > 25f) {
+				shouldHeartBeat = false;
+				checkOnce = false;
+			} else {
+				shouldHeartBeat = true;
+				if (!checkOnce) {
+					heartAnim.SetTrigger ("HeartBeats");
+					heartBeatAudioSource.Play ();
+					checkOnce = true;
+				}
 			}
 
 		}
-		heartBeatTime = r/d;
-
+		heartBeatTime = r;
 
 	}
 	//ReMapValuefrom A range to another
@@ -68,16 +86,31 @@ public class HeartBeat : MonoBehaviour {
 		return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 	}
 
-	IEnumerator HeartBeatFrequnecy() {
-		float i = 0;
-		while (true) {
-				yield return new WaitForSeconds (heartBeatTime);
-			if (heart != null) {
+	void HeartBeatFrequent(){
+		//make a timer 
+		float currentTime =  Time.time+timeStart;
+
+		if (Time.time >= timer) {
+			timer = currentTime + heartBeatTime;
+			if (heart != null&&shouldHeartBeat) {
 				heartAnim.SetTrigger ("HeartBeats");
 				heartBeatAudioSource.Play ();
 			}
+		} 
 
-		}
 
 	}
+
+//	IEnumerator HeartBeatFrequnecy() {
+//		float i = 0;
+//		while (true) {
+//				yield return new WaitForSeconds (heartBeatTime);
+//			if (heart != null) {
+//				heartAnim.SetTrigger ("HeartBeats");
+//				heartBeatAudioSource.Play ();
+//			}
+//
+//		}
+//
+//	}
 }
